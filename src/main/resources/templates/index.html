@@ -1,10 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8"></meta>
-    <title>Test</title>
+	<title>Secret Santa</title>
 </head>
-<body>
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<style type="text/css">
+body {
+	background-color: lightgrey;
+}
+	.container {
+		margin: auto;
+		background-color: #B08461;
+		max-width: 900px;
+		width: 900px;
+		height: 500px;
+		border-radius: 25px;
+		padding: 20px;
+		text-align: center;
+		border: 8px solid #566B39;
+	
+		color: #fff;
 
+	}
+
+	h1 {
+		font-size: 50px;
+		font-family: 'Great Vibes', cursive;
+		/*font-family: "garamond";  */
+	}
+	p {
+		font-size: 30px;
+		font-family: 'Cormorant Garamond', serif;
+	}
+
+	ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  font-size: 18px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</style>
+<body>
+	<div class= "container">
+		<div class="leady">
+<h1>Secret Santa</h1>
+<p>Welcome to Pask's secret Santa.</p>
+<hr/>
+</div>
+<div class="second">
+	<p style="font-size: 20px; font-family: 'Cormorant Garamond', serif;">Please enter yor details to sign up for the secret santa.</p>
+	<input type="text"  placeholder = "Name..." id="myInput" name="input1"/>
+	<input type="text" placeholder="Email..." id="myInput2" name="input2">
+	<br/><br/>
+	<button id="button1" class="btn btn-danger btn-lg">Add Member</button>
+</div>
+<ul id="myUL">
+  
+  
+</ul>
+
+
+</div> <!-- end of container -->
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script type="text/javascript">
+//global varaibles 
+	
+
+	peopleArray = [];
+
+	var button = document.getElementById("button1")
+	//button.addEventListener("click",startFunction,false);
+	button.addEventListener("click",newElement,false);
+	
+	function startFunction(){
+		var email = document.getElementById("formEmail").value;
+		const info = { "email" : email};
+
+		peopleArray.push(info);
+		console.log(peopleArray);
+	}
+
+
+	function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var inputValue2 = document.getElementById("myInput2").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue == "" || inputValue2 == "") {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+
+</script>
 </body>
 </html>
